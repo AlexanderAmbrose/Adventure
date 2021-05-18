@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link rel = "stylesheet" href="StylePage.css">
+    <script>
+    var gold = 50;
+    function hide(){
+        window.localStorage.setItem("gold", gold);
+      document.getElementById(' Weapons_trader').style.visibility = "hidden";
+      document.getElementById('Relic_trader').style.visibility = "hidden";
+      document.getElementById('Food_trader').style.visibility = "hidden";
+    }
+      function saveName()
+      {
+        var x = document.getElementById('name').value;
+        window.localStorage.setItem('userName',x);
+        actionOne();
+      }
+      function actionOne()
+      {
+        document.getElementById('question').innerHTML = "What kind of Merchent do you want to be"
+        document.getElementById('Weapons_trader').style.visibility = "visible";
+        document.getElementById('Relic_trader').style.visibility = "visible";
+        document.getElementById('Food_trader').style.visibility = "visible";
+      }
+
+      function WTrader()
+      {
+        window.location.href = "WPage1.html";
+      }
+
+      function RTrader()
+      {
+        window.location.href = "RPage1.html";
+      }
+
+      function FTrader()
+      {
+        window.location.href = "FPage1.html";
+      }
+    </script>
+  </head>
+  <body onload = "hide()">
+    <h1>Welcome Wondring Merchent What Is Your name</h1>
+    <input type = "text" id = "name">
+    <input type = "button" value = "Save" onclick = "saveName()">
+    <p id = "question"></p>
+    <input type="button" value="Weapons_trader" onclick="WTrader()">
+    <input type="button" value="Relic_trader"  onclick="RTrader()">
+    <input type="button" value="Food_trader"  onclick="FTrader()">
+    <p></p>
+  </body>
+</html>

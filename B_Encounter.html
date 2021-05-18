@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <link rel = "stylesheet" href="StylePage.css">
+    <script>
+    var x = 0;
+    function StartUp(){
+     x = window.localStorage.getItem('gold');
+     x = parseInt(x);
+     }
+      function Givegold()
+      {
+        x = x - 40;
+        x = parseInt(x);
+        document.getElementById('Money').innerHTML = "You have "+ x +" Gold";
+        document.getElementById('next').innerHTML = "<input type='button' value='Continue' onclick='Next()'>";
+          window.localStorage.setItem("gold", x);
+      }
+      function Run()
+      {
+        var iterations = "";
+        for (var i = 0; i < 4; i++) {
+          iterations = iterations + "You tryed to run but you couldn't" + "<br>";
+        }
+          document.getElementById('move').innerHTML = iterations;
+        document.getElementById('move2').innerHTML = "You tryed to run and you excaped";
+        document.getElementById('next').innerHTML = "<input type='button' value='Continue' onclick='Next()'>";
+
+      }
+      function Next()
+      {
+        window.location.href = "CT_Encounter.html";
+      }
+    </script>
+
+  </head>
+  <body onload="StartUp()">
+    <h1>OH NO! You ran into bandits</h1>
+    <p>They want you to give up your Gold </p>
+    <input type="button" value="Give 40 Gold" onclick="Givegold()">
+    <input type="button" value="Run" onclick="Run()">
+    <p id = 'Money'></p>
+    <p id = "move"></p>
+    <p id = "move2"></p>
+    <p id = "next"></p>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel = "stylesheet" href="StylePage.css">
+    <script>
+    var x = 0;
+    function StartUp(){
+     x = window.localStorage.getItem('gold');
+     }
+        function Explore()
+        {
+          x = parseInt(x);
+          x = x + 150;
+          document.getElementById('Explore').innerHTML = "You have "+ x +" Gold Now";
+            window.localStorage.setItem("gold", x);
+        }
+        function Run()
+        {
+          document.getElementById('Move').innerHTML = "You admire it and move on";
+          document.getElementById('next').innerHTML = "<input type='button' value='Continue' onclick='Next()'>";
+        }
+        function Next()
+        {
+          window.location.href = "Town_Encounter.html";
+        }
+    </script>
+
+  </head>
+  <body onload="StartUp()">
+    <h1>You have encountered a Waterfall </h1>
+    <p>you think to yourself should I explore it?</p>
+    <input type="button" value="explore" onclick="Explore()">
+    <input type="button" value="move" onclick="Run()">
+    <p id = 'Explore'></p>
+    <p id = "Move"></p>
+    <p id= "next"></p>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <link rel = "stylesheet" href="StylePage.css">
+  <script>
+  var trys = 0;
+  function getName()
+  {
+    var x = window.localStorage.getItem('userName');
+    document.getElementById('welcome').innerHTML = "Welcome "+x+" You are a Weapons_trader";
+    document.getElementById('info').innerHTML = "Your goal is to make Money (AKA Gold) by selling your items to other merchents";
+    document.getElementById('show').innerHTML = "Click on the Scroll to read it";
+
+  }
+  function hide()
+    {
+      document.getElementById('answer').style.visibility = "hidden";
+      document.getElementById('button').style.visibility = "hidden";
+    }
+  function actionOne()
+    {
+      document.getElementById('question').innerHTML = "It says what do merchents collect to complet there quest";
+      document.getElementById('answer').style.visibility = "visible";
+      document.getElementById('button').style.visibility = "visible";
+    }
+function checkAnswer()
+{
+   var x =  document.getElementById('answer').value;
+   if(x == "gold")
+   {
+     window.location.href = "Town_Encounter.html"
+   }
+   else {
+     alert("Try again");
+     }
+   }
+  </script>
+  </head>
+   <body onload = "hide()">
+     <input type="button" value="Start" onclick="getName()">
+     <h3 id ="welcome"></h3>
+     <h3 id = info></h3>
+     <p id = "show"></p>
+     <p id = "pic">
+       <img src = "scroll.jpg" width = "50%" height= "50%" onclick = "actionOne()">
+     </p>
+     <p id = "question"></p>
+     <input type = "text" id = "answer" >
+     <input type = "button" value = "Submit" id = "button" onclick = "checkAnswer()">
+   </body>
+</html>

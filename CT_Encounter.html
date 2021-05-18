@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link rel = "stylesheet" href="StylePage.css">
+    <script>
+    var x = 0;
+    function StartUp(){
+     x = window.localStorage.getItem('gold');
+     x = parseInt(x);
+     }
+        function Trade()
+        {
+          x = x + 50;
+          x = parseInt(x);
+          document.getElementById('Money').innerHTML = "You have "+ x +" Gold Now";
+          document.getElementById('next').innerHTML = "<input type='button' value='Continue' onclick='Next()'>";
+            window.localStorage.setItem("gold", x);
+        }
+        function Run()
+        {
+          document.getElementById('Move').innerHTML = "You denied the trade and continue";
+          document.getElementById('next').innerHTML = "<input type='button' value='Continue' onclick='Next()'>";
+
+        }
+        function Next()
+        {
+          window.location.href = "Town_Encounter.html";
+        }
+    </script>
+
+  </head>
+  <body onload="StartUp()">
+    <h1>You have encountered a fellow  Food Merchent </h1>
+    <p>Hello I have been on the look for Food items would you trade with me?</p>
+    <input type="button" value="Trade With Him" onclick="Trade()">
+    <input type="button" value="Denie The Trade" onclick="Run()">
+    <p id = 'Money'></p>
+    <p id = "Move"></p>
+    <p id = "next"></p>
+  </body>
+</html>

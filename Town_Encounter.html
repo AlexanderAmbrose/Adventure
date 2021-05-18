@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel = "stylesheet" href="StylePage.css">
+    <script>
+    function StartUp(){
+    var x = window.localStorage.getItem('gold');
+    x = parseInt(x);
+    if (x >= 1000) {
+      window.location.href = "Victory.html";
+    }
+  }
+        function actionOne()
+        {
+          document.getElementById('Move').innerHTML = "You have collected supplys and are ready to go on your way to The next town";
+
+        }
+        function Run()
+        {
+          document.getElementById('Move').innerHTML = "You Start On the road to the next town";
+          document.getElementById("pic").innerHTML = "<img src='road.jpg' width='250' height='300' onclick ='Split()'>";
+        }
+        function Split()
+        {
+          window.location.href = "Road.html";
+        }
+    </script>
+
+  </head>
+  <body onload = "StartUp()">
+    <h1>You start off in the town.</h1>
+    <p>You should pick up the supplys and then go on your way</p>
+    <img src="Supply.jpg" width="250" height="300" onclick = "actionOne()">
+    <input type="button" value="Start travaling" onclick="Run()">
+    <p id = 'pic'></p>
+    <p id = "Move"></p>
+  </body>
+</html>
